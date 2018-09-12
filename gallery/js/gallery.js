@@ -8,6 +8,12 @@ function activateGallery () {
   let description = galleryInfo.querySelector('.description')
 
   thumbnails.forEach(function (thumbnail) {
+
+    // Preload large images
+    let newImageSrc = thumbnail.dataset.largeVersion
+    let largeVersion = new Image()
+    largeVersion.src = newImageSrc
+
     thumbnail.addEventListener('click', function () {
       let newImageSrc = thumbnail.dataset.largeVersion
       let newImageAlt = thumbnail.alt
